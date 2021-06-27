@@ -2,7 +2,7 @@
   <li>
     <div id="todo-form">
       <input type="checkbox"/>
-      <div>{{todoTitle}}</div>
+      <div>{{todo}}</div>
     </div>
   </li>
 </template>
@@ -10,9 +10,10 @@
 <script>
 export default {
   el : '#todo-form',
+  props: ['todoItem'],
   data: function() {
     return {
-      todoTitle: '오늘 할일을 입력해주세요'
+      todo: this.todoItem
     }
   }
 }
@@ -22,5 +23,9 @@ export default {
 #todo-form {
   background-color: #273645;
   display: flex;
+}
+
+#todo-form div {
+  color: white;
 }
 </style>
