@@ -1,7 +1,7 @@
 <template>
   <div id="todo-list">
     <ul>
-      <TodoForm v-for="todo in todos"></TodoForm>
+      <TodoForm v-for="todo in todos" v-bind:todo-item="todo.text" v-bind:key="todo.id"></TodoForm>
     </ul>
   </div>
 </template>
@@ -11,11 +11,10 @@ import TodoForm from "@/components/todo/TodoForm";
 
 export default {
   el: '#todo-list',
+  props: ['items'],
   data: function () {
     return {
-      todos: [
-        {}
-      ]
+      todos: this.items
     }
   },
   components: {
